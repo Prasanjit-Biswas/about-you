@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" id="container">
+        <table>
+            <tr>
+                <td>
+                    Name
+                </td>
+                <td>
+                    <input type="text" class="name" oninput="getValue()">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Qualification
+                </td>
+                <td>
+                    <input type="text" id="qualification" oninput="getValue()">
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Hobbies
+                </td>
+                <td>
+                    <input type="text" id="hobbies" oninput="getValue()">
+                </td>
+            </tr>
+        </table>
+        <div id="content">
+            I, <span class="name_result"></span>, would like to apply for an internship at your organisation.</div>
+            My Qualification is <span id="qualification_result"></span>.<br>
+            My hobbies <p id="hobbi_result"></p>
+            Thanking you,Your Sincerely
+            <div class="name_result"></div>
+        </div>
+    </form>
+
+    <script>
+        function getValue() {
+            // name
+            let name = document.querySelector(".name");
+            let nameValue = name.value;
+
+            let name_result = document.querySelector(".name_result");
+            name_result.innerText = nameValue;
+
+            // qualification
+            let qualification = document.getElementById("qualification");
+            let qualificationValue = qualification.value;
+
+            let qualification_result = document.getElementById("qualification_result");
+            qualification_result.innerText = qualificationValue;
+
+            // Hobbies
+            let hobbies = document.getElementById("hobbies");
+            let hobbiesValue = hobbies.value;
+
+            const str = hobbiesValue;
+            const spaces1 = str.split(' ').length - 1;
+            // console.log(spaces1)
+
+            if (spaces1 < 1) {
+                let hobbi_result = document.getElementById("hobbi_result");
+                hobbi_result.innerText = "is" + " "+ hobbiesValue + ".";
+            }
+            else if(spaces1 > 1){
+                let hobbi_result = document.getElementById("hobbi_result");
+                hobbi_result.innerText = "are" + " "+ hobbiesValue + ".";
+            }
+        }
+        
+        document.getElementById("container").style.margin = "80px";
+        document.querySelector("#content").style.marginTop = "40px";
+    </script>
+</body>
+
+</html>
